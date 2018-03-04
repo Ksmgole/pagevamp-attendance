@@ -15,11 +15,10 @@ Route::get('/', function () {
     return view ('welcome');
 });
 
-//Route::get('/', function () {
-//    return "THis is test";
-//});
+
 Auth::routes();
 
 Route::get('/login', 'UserController@login');
 Route::get('/admin', 'UserController@admin_dashboard');
-
+Route::get('/member', 'UserController@member_dashboard');
+Route::post('','UserController@checklogin');
