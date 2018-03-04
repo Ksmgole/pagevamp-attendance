@@ -27,9 +27,9 @@
         <div class="row">
             <div class="col-sm-2">
                 <ul class="sidebar">
-                    <li class="active"><a href="#">Attendance</a></li>
+                    <li class="active"><a href="{{url('attendance/admin.blade.php')}}">Attendance</a></li>
                     <li><a href="#">Holidays</a></li>
-                    <li><a href="#">Leave</a></li>
+                    <li><a href="{{url('leave/admin.blade.php')}}">Leave</a></li>
                 </ul><br>
                 <hr>
                 <ul class="sidebar">
@@ -40,8 +40,83 @@
             </div>
 
             <div class="col-sm-9">
-                @yield('attendance')
-                </div>
+                {{--@yield('attendance')--}}
+                <h1 class="page-header">Holiday </h1>
+                        <table class="table table-striped">
+                            <thead>
+                            <th>S.N.</th>
+                            <th>English Date</th>
+                            <th>Nepali Date</th>
+                            <th>Day</th>
+                            <th>Holiday</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Kusum Gole</td>
+                                <td>Quality Assurance</td>
+                                <td>8am</td>
+                                <td>5pm</td>
+                                <td>Online</td>
+                            </tr>
+                            <tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr>
+                            <tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr><tr>
+                                <td>Kusum2</td>
+                                <td>Developer</td>
+                                <td>9am</td>
+                                <td>7pm</td>
+                                <td>Offline</td>
+                            </tr>
+                            </tbody>
+                        </table>
+            </div>
         </div>
     </div>
 </body>
