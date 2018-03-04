@@ -1,6 +1,6 @@
 
 @extends('layout.admin')
-@section('attendance')
+@section('content')
     <h1 class="page-header">Attendance</h1>
     <h3 class="sub-header">3/3/2018</h3>
     <table class="table table-striped">

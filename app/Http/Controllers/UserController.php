@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     //
 
-    public function login (){
+    public function loginPage (){
         return view ('auth.login');
 
     }
