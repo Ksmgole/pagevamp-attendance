@@ -11,14 +11,16 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view ('welcome');
-//});
+Route::get('/', function () {
+    return 'Welcome to My Attendance Portal. You mere mortals.';
+});
 
 
 Auth::routes();
 
-Route::get('/', 'UserController@loginPage');
+Route::get('/login', 'UserController@loginPage')->name('login.get');
 Route::get('/admin', 'UserController@admin_dashboard');
 Route::get('/member', 'UserController@member_dashboard');
 Route::post('','UserController@checklogin');
+
+Route::post('login','UserController@postLogin')->name('login.post');
