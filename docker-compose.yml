@@ -1,0 +1,27 @@
+version: '2'
+services:
+  attendance.pv:
+    container_name: attendance.pv
+    image: pagevamp/nginx-php7-fpm:7.2
+    restart: always
+    environment:
+      - VIRTUAL_HOST=attendance.pv
+    volumes_from:
+      - www
+      - sites 
+    networks:
+      - pagevamp  
+
+  www:
+    image: busybox
+    volumes:
+      - .:/var/www
+
+  sites:
+    image: busybox
+    volumes:
+      - ./docker/sites/default.conf:/etc/nginx/sites-enabled/default
+networks:
+  pagevamp:
+    external: true
+
