@@ -12,15 +12,21 @@ class UserController extends Controller
         return view ('auth.login');
 
     }
-    public function admin_dashboard (){
-        return view ('layout.admin');
+    public function adminDashboard (){
+        return view ('attendance.admin');
     }
 
-    public function member_dashboard (){
+    public function memberDashboard (){
         return view ('layout.member');
     }
-    public function checklogin(){
-
+    public function checkLogin(Request $request){
+    if(Auth::attempt($request->only(['$email','$password']))){
+        $user= Auth::user();
+        if($user->is_admin){
+            return redirect()->route('admin.get');
+        }
+        return redirect('/member');
+    }
 
     }
 }
