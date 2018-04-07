@@ -19,6 +19,6 @@
 Auth::routes();
 
 Route::get('/', 'UserController@loginPage');
-Route::get('/admin', 'UserController@adminDashboard')->name('admin.get');
+Route::get('/admin', 'UserController@adminDashboard')->name('admin.dashboard');
 Route::get('/member', 'UserController@memberDashboard');
-Route::post('','UserController@checkLogin')->name('login.post');
+Route::post('/login','UserController@checkLogin')->name('login.post');

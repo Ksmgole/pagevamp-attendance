@@ -23,7 +23,7 @@ class UserController extends Controller
     if(Auth::attempt($request->only(['$email','$password']))){
         $user= Auth::user();
         if($user->is_admin){
-            return redirect()->route('admin.get');
+            return redirect()->route('admin.dashboard');
         }
         return redirect('/member');
     }
