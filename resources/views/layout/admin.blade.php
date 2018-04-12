@@ -12,18 +12,22 @@
     <div class="container-fluid">
         <div id="main" class="row">
             <div id="nav" class="col-sm-2">
-                @include('includes.sidenav')
+                <ul class="sidebar">
+                    <li class="active"><a href="#">Attendance</a></li>
+                    <li><a href="#">Holidays</a></li>
+                    <li><a href="#">Leave</a></li>
+                </ul>
                 <hr>
                 <ul class="sidebar">
-                    <li><a href="">Create Member</a></li>
+                    <li><a href="{{route('create.member')}}">Create Member</a></li>
                     <li><a href="">Send Notice</a></li>
                     <li><a href="">Notifications</a></li>
                 </ul>
             </div>
 
-            <div id="content" class="col-sm-9">
-                @yield('content')
-            </div>
+            {{--<div id="content" class="col-sm-9">--}}
+                {{--@yield('content')--}}
+            {{--</div>--}}
         </div>
     </div>
 

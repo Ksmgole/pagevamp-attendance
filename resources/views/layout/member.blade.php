@@ -12,7 +12,11 @@
 <div class="container-fluid">
     <div id="main" class="row">
         <div id="nav" class="col-sm-2">
-            @include('includes.sidenav')
+            <ul class="sidebar">
+                <li class="active"><a href="">Attendance</a></li>
+                <li><a href="#">Holidays</a></li>
+                <li><a href="{{url('leave/admin.blade.php')}}">Leave</a></li>
+            </ul>
         </div>
 
         <div id="content" class="col-sm-9">
