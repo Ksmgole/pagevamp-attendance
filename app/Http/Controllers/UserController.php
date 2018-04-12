@@ -7,6 +7,8 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+
 
 
 class UserController extends Controller
@@ -42,7 +44,7 @@ class UserController extends Controller
         $user->firstname = Input::get('firstname');
         $user->lastname = Input::get('lastname');
         $user->email = Input::get('email');
-        $user->password = Input::get(Input::get('password'));
+        $user->password = Input::get('password');
         $user->save();
 
         return Redirect::back();
