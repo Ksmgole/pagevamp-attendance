@@ -1,11 +1,6 @@
 
-
-<html>
-<head>
-<title>Create Member</title>
-</head>
-
-<body>
+@extends('layout.admin')
+@section('content')
 
 <form class="form-signin" action="{{route('insert.member')}}" method="POST">
     <h2 class="form-signin-heading">Add new member</h2>
@@ -16,6 +11,4 @@
     <button class="btn btn-primary">Add Member</button>
 </form>
 
-
-
-</body></html>
+@stop

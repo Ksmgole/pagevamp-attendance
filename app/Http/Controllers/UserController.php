@@ -26,6 +26,7 @@ class UserController extends Controller
     public function memberDashboard (){
         return view ('layout.member');
     }
+
     public function checkLogin(Request $request){
     if(Auth::attempt($request->only(['email','password']))){
         $user= Auth::user();
@@ -34,10 +35,20 @@ class UserController extends Controller
         }
         return redirect('/member');
     }
-
     }
+
+    public function displayMembers (){
+        return view ('adminoption.displayMember');
+    }
+    public function display (){
+
+        $user = User::all();
+        return view('displayMember')->with('users', $user);
+    }
+
+
     public function createMember (){
-        return view ('adminoption.createmember');
+        return view ('adminoption.createMember');
     }
     public function insertMember(Request $request){
         $user = new User();

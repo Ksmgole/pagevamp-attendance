@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIsadmin extends Migration
+class AddColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,12 @@ class AddIsadmin extends Migration
     public function up()
     {
         Schema::table('users',function(Blueprint $table){
-            $table->boolean('is_admin')
-                ->default(0)
-                ->comment('1 is for admin, 0 is for normal user');
-        });
+            $table->integer('phone_no');
+            $table->integer('citizenship_no');
+            $table->string('pan_no');
+            $table->string('address');
 
+        });
     }
 
     /**
@@ -29,7 +30,13 @@ class AddIsadmin extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->dropColumn('is_admin');
+            $table->dropColumn('phone_no');
+            $table->dropColumn('citizenship_no');
+            $table->dropColumn('pan_no');
+            $table->dropColumn('address');
+
+
         });
+
     }
 }
