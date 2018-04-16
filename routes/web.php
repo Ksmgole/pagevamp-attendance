@@ -28,7 +28,8 @@ Route::group(['middleware'=>'auth'],function()
 });
 
     Route::get('/attendance','UserController@displayMembers')->name('display.members');
-    Route::get('', 'UserController@display');
+    Route::get('','UserController@editMember')->name('edit.member');
+//    Route::get('', 'UserController@display');
 
 
 Route::get('/createmember','UserController@createMember')->name('create.member');

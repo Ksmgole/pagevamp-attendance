@@ -1,4 +1,4 @@
-@extends ('layout.admin');
+@extends ('layout.admin')
 @section('content')
     <h1 class="page-header">Pagevamp Team Members</h1>
     <table class="table table-striped">
@@ -14,7 +14,7 @@
                 <td>{{$row->lastname}}</td>
                 <td>{{$row->email}}</td>
                 <td>
-                    <button type="button" class="btn btn-success">Edit</button>
+                    <a href="{{route('edit.member')}}" class="btn btn-success">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
