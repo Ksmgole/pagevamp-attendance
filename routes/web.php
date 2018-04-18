@@ -16,25 +16,22 @@ Route::get('/', function () {
 });
 
 
-//Auth::routes();
 Route::get('/', 'UserController@loginPage');
 Route::post('/login', 'UserController@checkLogin')->name('login.post');
 
 
-Route::group(['middleware'=>'auth'],function()
-{
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin', 'UserController@adminDashboard')->name('admin.dashboard');
     Route::get('/member', 'UserController@memberDashboard');
 });
 
-    Route::get('/attendance','UserController@displayMembers')->name('display.members');
-    Route::get('','UserController@editMember')->name('edit.member');
-//    Route::get('', 'UserController@display');
+Route::get('/member/create', 'UserController@createMember')->name('create.member');
+Route::post('/member', 'UserController@saveMember')->name('save.member');
 
 
-Route::get('/createmember','UserController@createMember')->name('create.member');
-    Route::post('','UserController@insertMember')->name('insert.member');
-
+Route::get('/memberlist', 'UserController@showMember')->name('show.member');
+Route::get('', 'UserController@editMember')->name('edit.member');
+//
 
 
 //    Phone no. , Pan no. , citizenship no., address,

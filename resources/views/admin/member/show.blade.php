@@ -8,11 +8,11 @@
             <td>Email</td>
 
         </tr>
-        @foreach($users as $row)
+        @foreach($users as $user)
             <tr>
-                <td>{{$row->firstname}}</td>
-                <td>{{$row->lastname}}</td>
-                <td>{{$row->email}}</td>
+                <td>{{$user->firstname}}</td>
+                <td>{{$user->lastname}}</td>
+                <td>{{$user->email}}</td>
                 <td>
                     <a href="{{route('edit.member')}}" class="btn btn-success">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>

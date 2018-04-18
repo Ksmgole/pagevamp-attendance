@@ -15,19 +15,24 @@ class UserController extends Controller
 {
     //
 
-    public function loginPage (){
-        return view ('auth.login');
+    public function loginPage()
+    {
+        return view('auth.login');
 
     }
-    public function adminDashboard (){
-        return view ('attendance.admin');
+
+    public function adminDashboard()
+    {
+        return view('attendance.admin');
     }
 
-    public function memberDashboard (){
-        return view ('layout.member');
+    public function memberDashboard()
+    {
+        return view('layout.member');
     }
 
-    public function checkLogin(Request $request){
+    public function checkLogin(Request $request)
+    {
         if (Auth::attempt($request->only(['email', 'password']))) {
             $user = Auth::user();
             if ($user->is_admin) {
@@ -37,30 +42,39 @@ class UserController extends Controller
         }
     }
 
-    public function createMember (){
-        return view ('adminoption.createMember');
+    public function createMember()
+    {
+        return view('admin.member.create');
     }
 
-    public function insertMember(Request $request){
+    public function saveMember(Request $request)
+    {
         $user = new User();
-        $user->firstname = Input::get('firstname');
-        $user->lastname = Input::get('lastname');
-        $user->email = Input::get('email');
-        $user->password = Input::get('password');
+        $user->firstname = $request->get('firstname');
+        $user->lastname = $request->get('lastname');
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
+        $user->phone_no = $request->get('contact');
+        $user->address = $request->get('address');
+        $user->citizenship_no = $request->get('citizenship');
+        $user->pan_no = $request->get('pan');
         $user->save();
         return Redirect::back();
     }
 
-    public function displayMembers(){
+    public function showMember()
+    {
         $user = User::all();
-        return view('adminoption.displayMember')->with('users', $user);
+        return view('admin.member.show')->with('users', $user);
     }
-    public function editMember(){
+
+    public function editMember()
+    {
         $user = User::find(1);
-//        $user->firstname = Input::get('firstname');
-//        $user->lastname = Input::get('lastname');
-//        $user->email = Input::get('email');
-        return View::make('adminoption.displayMember')->compact('user');
+        $user->firstname = Input::get('firstname');
+        $user->lastname = Input::get('lastname');
+        $user->email = Input::get('email');
+        return View::make('admin.member.display')->compact('user');
     }
 
 

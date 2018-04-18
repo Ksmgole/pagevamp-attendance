@@ -24,11 +24,10 @@ img {
     margin-left:0;
     padding-left: 0;
     list-style: none;
-    text-transform: uppercase;
 }
 .header .col-sm-5 .ul{
     float: right;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 ul{
     color: #000;
