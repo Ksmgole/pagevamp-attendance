@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 
+
 class UserController extends Controller
 {
     //
@@ -68,14 +69,20 @@ class UserController extends Controller
         return view('admin.member.show')->with('users', $user);
     }
 
-    public function editMember()
+    public function editMember($id)
     {
-        $user = User::find(1);
-        $user->firstname = Input::get('firstname');
-        $user->lastname = Input::get('lastname');
-        $user->email = Input::get('email');
-        return View::make('admin.member.display')->compact('user');
+        $user = User::find($id);
+        return  View::make('admin.member.edit', ['user' => $user]);
     }
 
+    public function updateMember(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->firstname = $request->get('firstname');
+        $user->lastname = $request->get('lastname');
+        $user->email = $request->get('email');
+        $user->save();
+        return redirect()->route('show.member');
+    }
 
 }

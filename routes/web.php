@@ -30,8 +30,9 @@ Route::post('/member', 'UserController@saveMember')->name('save.member');
 
 
 Route::get('/memberlist', 'UserController@showMember')->name('show.member');
-Route::get('', 'UserController@editMember')->name('edit.member');
-//
+Route::post('/member/{$id}/edit', 'UserController@editMember')->name('edit.member');
+Route::get('/member/{$id}', 'UserController@updateMember')->name('update.member');
 
 
-//    Phone no. , Pan no. , citizenship no., address,
+
+

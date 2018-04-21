@@ -14,7 +14,7 @@
                 <td>{{$user->lastname}}</td>
                 <td>{{$user->email}}</td>
                 <td>
-                    <a href="{{route('edit.member')}}" class="btn btn-success">Edit</a>
+                    <a href="{{route('edit.member',$user ->id)}}" class="btn btn-success">Edit</a>
                     <button type="button" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
