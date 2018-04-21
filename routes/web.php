@@ -30,8 +30,8 @@ Route::post('/member', 'UserController@saveMember')->name('save.member');
 
 
 Route::get('/memberlist', 'UserController@showMember')->name('show.member');
-Route::get('/member/{$id}/edit', 'UserController@editMember')->name('edit.member');
-Route::post('/member/{$id}', 'UserController@updateMember')->name('update.member');
+Route::get('/member/{id}/edit', 'UserController@editMember')->name('edit.member');
+Route::post('/member/{id}', 'UserController@updateMember')->name('update.member');
 
 
 

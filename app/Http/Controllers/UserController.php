@@ -81,6 +81,10 @@ class UserController extends Controller
         $user->firstname = $request->get('firstname');
         $user->lastname = $request->get('lastname');
         $user->email = $request->get('email');
+        $user->phone_no = $request->get('contact');
+        $user->address = $request->get('address');
+        $user->citizenship_no = $request->get('citizenship');
+        $user->pan_no = $request->get('pan');
         $user->save();
         return redirect()->route('show.member');
     }
