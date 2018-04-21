@@ -72,7 +72,7 @@ class UserController extends Controller
     public function editMember($id)
     {
         $user = User::find($id);
-        return  View::make('admin.member.edit', ['user' => $user]);
+        return View::make('admin.member.edit', ['user' => $user]);
     }
 
     public function updateMember(Request $request, $id)
