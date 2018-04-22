@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', 'UserController@loginPage')->name('login');
+Route::get('/', 'UserController@login')->name('login');
 Route::post('login', 'UserController@postLogin')->name('postLogin');
+Route::get('logout', 'UserController@logout')->name('logout');
 
 
 Route::group(['middleware' => 'auth'], function () {

@@ -15,9 +15,16 @@ class UserController extends Controller
 {
     //
 
-    public function loginPage()
+    public function login()
     {
         return view('auth.login');
+
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
 
     }
 
@@ -40,7 +47,7 @@ class UserController extends Controller
             }
             return redirect()->route('memberDashboard');
         }
-        return redirect()->route('login')->with('message','<div class ="alert alert-danger"><strong>User is not registered yet</strong></div>');
+        return redirect()->route('login')->with('message', '<div class ="alert alert-danger"><strong>User is not registered yet</strong></div>');
 
     }
 
