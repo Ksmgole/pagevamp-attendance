@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
 
-
 class UserController extends Controller
 {
     //
@@ -32,15 +31,17 @@ class UserController extends Controller
         return view('layout.member');
     }
 
-    public function checkLogin(Request $request)
+    public function postLogin(Request $request)
     {
         if (Auth::attempt($request->only(['email', 'password']))) {
             $user = Auth::user();
             if ($user->is_admin) {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('adminDashboard');
             }
-            return redirect('/member');
+            return redirect()->route('memberDashboard');
         }
+        return redirect()->route('login')->with('message','<div class ="alert alert-danger"><strong>User is not registered yet</strong></div>');
+
     }
 
     public function createMember()

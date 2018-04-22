@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', 'UserController@loginPage');
-Route::post('/login', 'UserController@checkLogin')->name('login.post');
+Route::get('/', 'UserController@loginPage')->name('login');
+Route::post('login', 'UserController@postLogin')->name('postLogin');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin', 'UserController@adminDashboard')->name('admin.dashboard');
-    Route::get('/member', 'UserController@memberDashboard');
+    Route::get('admin', 'UserController@adminDashboard')->name('adminDashboard');
+    Route::get('member', 'UserController@memberDashboard')->name('memberDashboard');
 });
 
 Route::get('/member/create', 'UserController@createMember')->name('create.member');
