@@ -13,7 +13,7 @@
     <div id="main" class="row">
         <div id="nav" class="col-sm-2">
             <ul class="sidebar">
-                <li class="active"><a href="">Attendance</a></li>
+                <li class="active"><a href="{{route('attendance')}}">Attendance</a></li>
                 <li><a href="#">Holidays</a></li>
                 <li><a href="#">Leave</a></li>
             </ul>
