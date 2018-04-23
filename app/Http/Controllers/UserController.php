@@ -28,7 +28,10 @@ class UserController extends Controller
 
     }
 
-
+    public function adminDashboard()
+    {
+        return view('layout.admin');
+    }
     public function memberDashboard()
     {
         return view('layout.member');
@@ -39,7 +42,7 @@ class UserController extends Controller
         if (Auth::attempt($request->only(['email', 'password']))) {
             $user = Auth::user();
             if ($user->is_admin) {
-                return redirect()->route('attendance');
+                return redirect()->route('adminDashboard');
             }
             return redirect()->route('memberDashboard');
         }

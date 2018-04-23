@@ -22,9 +22,10 @@ Route::get('logout', 'UserController@logout')->name('logout');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/admin','UserController@attendance')->name('attendance');
+    Route::get('/admin','UserController@adminDashboard')->name('adminDashboard');
     Route::get('member', 'UserController@memberDashboard')->name('memberDashboard');
 });
+Route::get('/attendancelist','UserController@attendance')->name('attendance');
 
 
 Route::get('/member/create', 'UserController@createMember')->name('create.member');
