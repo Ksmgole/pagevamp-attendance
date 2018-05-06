@@ -1,11 +1,21 @@
 @extends ('layout.admin')
 @section('content')
     <h1 class="page-header">Pagevamp Team Members</h1>
-    <table class="table table-striped">
+    <button type="button" class="add-user">ADD</button>
+    <script>
+        $(function () {
+            $(".add-user").click(function () {
+                var html = '<tr><td><input type="text" id="new-user"></td><button>Save</button></tr>';
+                $("#user-list").append(html);
+            });
+        })
+    </script>
+    <table class="table table-striped" id="users-table">
         <tr style="font-size: 16px;">
             <td>Firstname</td>
             <td>Lastname</td>
             <td>Email</td>
+            <td>Designation</td>
             <td>Contact no.</td>
             <td>Address</td>
             <td>Citizenship no.</td>
@@ -17,16 +27,29 @@
                 <td>{{$user->firstname}}</td>
                 <td>{{$user->lastname}}</td>
                 <td>{{$user->email}}</td>
+                <td>{{$user->designation}}</td>
                 <td>{{$user->phone_no}}</td>
                 <td>{{$user->address}}</td>
                 <td>{{$user->citizenship_no}}</td>
                 <td>{{$user->pan_no}}</td>
                 <td>
                     <a href="{{route('edit.member',$user ->id)}}" class="btn btn-success">Edit</a>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="delete-user btn btn-danger" data-user-id="{{$user->id}}">Delete
+                    </button>
                 </td>
+                <script>
+                    $(function() {
+                        $(".delete-user").click(function() {
+                            var $this = $(this);
+                            var question = confirm('Are you sure want to delete?');
+                            if (question) {
+                                $this.closet("tr").remove();
+                            }
+                        });
+                    })
+                </script>
             </tr>
         @endforeach
-
     </table>
+
 @stop

@@ -12,6 +12,9 @@
                 <td>Email: <input type="text" name="email" class="form-control"  value="{{$user ->email}}"></td>
             </tr>
             <tr>
+                <td>Designation: <input type="text" name="designation" class="form-control"  value="{{$user ->designation}}"></td>
+            </tr>
+            <tr>
                 <td>Contact no.: <input type="text" name="contact" class="form-control"  value="{{$user ->phone_no}}"></td>
             </tr>
             <tr>

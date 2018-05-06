@@ -12,6 +12,9 @@
                 <td>Email: <input type="text" name="email" class="form-control"></td>
             </tr>
             <tr>
+                <td>Designation: <input type="text" name="designation" class="form-control"></td>
+            </tr>
+            <tr>
                 <td>Password: <input type="password" name="password" class="form-control"></td>
             </tr>
             <tr>

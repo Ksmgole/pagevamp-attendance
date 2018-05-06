@@ -65,6 +65,7 @@ class UserController extends Controller
         $user->firstname = $request->get('firstname');
         $user->lastname = $request->get('lastname');
         $user->email = $request->get('email');
+        $user->designation = $request->get('designation');
         $user->password = $request->get('password');
         $user->phone_no = $request->get('contact');
         $user->address = $request->get('address');
@@ -92,6 +93,7 @@ class UserController extends Controller
         $user->firstname = $request->get('firstname');
         $user->lastname = $request->get('lastname');
         $user->email = $request->get('email');
+        $user->designation = $request->get('designation');
         $user->phone_no = $request->get('contact');
         $user->address = $request->get('address');
         $user->citizenship_no = $request->get('citizenship');
