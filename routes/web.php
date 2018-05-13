@@ -23,7 +23,7 @@ Route::get('logout', 'UserController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin','UserController@adminDashboard')->name('adminDashboard');
-    Route::get('member', 'UserController@memberDashboard')->name('memberDashboard');
+    Route::get('', 'UserController@memberDashboard')->name('memberDashboard');
 });
 Route::get('/attendancelist','UserController@attendance')->name('attendance');
 
@@ -35,6 +35,8 @@ Route::post('/member', 'UserController@saveMember')->name('save.member');
 Route::get('/memberlist', 'UserController@showMember')->name('show.member');
 Route::get('/member/{id}/edit', 'UserController@editMember')->name('edit.member');
 Route::post('/member/{id}', 'UserController@updateMember')->name('update.member');
+
+Route::get('/member/{id}/delete', 'UserController@deleteMember')->name('delete.member');
 
 
 

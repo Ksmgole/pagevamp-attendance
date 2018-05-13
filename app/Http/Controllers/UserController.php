@@ -72,7 +72,7 @@ class UserController extends Controller
         $user->citizenship_no = $request->get('citizenship');
         $user->pan_no = $request->get('pan');
         $user->save();
-        return Redirect::back();
+        return redirect()->route('show.member');
     }
 
     public function showMember()
@@ -100,6 +100,12 @@ class UserController extends Controller
         $user->pan_no = $request->get('pan');
         $user->save();
         return redirect()->route('show.member');
+    }
+    public function deleteMember($id)
+    {
+        user::where('id',$id)->delete();
+        return redirect()->route('show.member');
+
     }
 
 }
