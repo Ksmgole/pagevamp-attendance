@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Attendance;
+use App\Events\UserLoggedIn;
 use App\User;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
@@ -41,9 +43,12 @@ class UserController extends Controller
     {
         if (Auth::attempt($request->only(['email', 'password']))) {
             $user = Auth::user();
+
+            event(new UserLoggedIn($user));
             if ($user->is_admin) {
                 return redirect()->route('adminDashboard');
             }
+
             return redirect()->route('memberDashboard');
         }
         return redirect()->route('login')->with('message', '<div class ="alert alert-danger"><strong>User is not registered yet</strong></div>');
@@ -51,6 +56,13 @@ class UserController extends Controller
     }
 
     public function attendance(){
+
+
+//        dd(Attendance::forToday()->with('user')->get());
+
+        $users = User::with(['attendance' => function($query){
+            $query->forToday();
+        }])->get();
         return view('attendance.attendanceList');
     }
 
@@ -66,7 +78,7 @@ class UserController extends Controller
         $user->lastname = $request->get('lastname');
         $user->email = $request->get('email');
         $user->designation = $request->get('designation');
-        $user->password = $request->get('password');
+        $user->password = bcrypt($request->get('password'));
         $user->phone_no = $request->get('contact');
         $user->address = $request->get('address');
         $user->citizenship_no = $request->get('citizenship');
@@ -101,11 +113,11 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('show.member');
     }
+
     public function deleteMember($id)
     {
         user::where('id',$id)->delete();
         return redirect()->route('show.member');
-
     }
 
 }

@@ -13,14 +13,15 @@ class CreateAttendance extends Migration
      */
     public function up()
     {
-        Schema::create('attendance', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('designation');
-            $table->string('entry_time');
-            $table->string('leave_time');
-            $table->string('online_status');
+
+            $table->integer('user_id');
+            $table->date('date');
+            $table->dateTime('entry_time');
+            $table->dateTime('leave_time')->nullable();
+
+            $table->timestamps();
         });
 //
     }
@@ -32,6 +33,6 @@ class CreateAttendance extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance');
+        Schema::dropIfExists('attendances');
     }
 }

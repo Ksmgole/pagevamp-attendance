@@ -14,7 +14,7 @@ class AddColumn extends Migration
     public function up()
     {
         Schema::table('users',function(Blueprint $table){
-            $table->integer('phone_no');
+            $table->string('phone_no');
             $table->integer('citizenship_no');
             $table->string('pan_no');
             $table->string('address');

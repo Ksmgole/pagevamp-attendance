@@ -12,6 +12,16 @@
             <td>Exit time</td>
             <td>Online Status</td>
         </tr>
-    </table>
+         @foreach($users as $user)
+         <tr>
+             <td>{{$user->firstname}}</td>
+             <td>{{$user->lastname}}</td>
+             <td>{{$user->designation}}</td>
+             <td>{{$user->entry_time}}</td>
+             <td>{{$user->leave_time}}</td>
+         </tr>
+         @endforeach
+
+     </table>
 
 @stop

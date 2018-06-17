@@ -18,7 +18,12 @@ class UserSeeder extends Seeder
                 'lastname' => $faker->lastName,
                 'is_admin' => $i % 2 ==0 ? 1 : 0,
                 'email' => $faker->email,
-                'password' => bcrypt('password')
+                'password' => bcrypt('password'),
+                'phone_no' => $faker->phoneNumber,
+                'citizenship_no' => $faker->buildingNumber,
+                'pan_no' => $faker->buildingNumber,
+                'address' => $faker->address,
+                'designation' => $faker->title
             ]);
         }
     }

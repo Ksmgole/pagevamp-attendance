@@ -1,15 +1,7 @@
 @extends ('layout.admin')
 @section('content')
     <h1 class="page-header">Pagevamp Team Members</h1>
-    <button type="button" class="add-user">ADD</button>
-    <script>
-        $(function(){
-            $(".add-user").click(function(){
-                var html = '<tr><td><input type="text" id="new-user"><button>Save</button></td></tr>';
-                $("#users-table").append(html);
-            });
-        })
-    </script>
+
     <table class="table table-striped" id="users-table">
         <tr style="font-size:16px;">
             <td>Firstname</td>
